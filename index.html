@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>CRM con IndexedDB - Proyecto Mejorado</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 2em; }
+        input, button { padding: 0.5em; margin: 0.2em 0; width: 100%; }
+        input:focus { border-color: blue; outline: none; background: #e7f0ff; }
+        .valid { border-color: green; background: #e6ffe6; }
+        .invalid { border-color: red; background: #ffe6e6; }
+        button:disabled { background: #ccc; cursor: not-allowed; }
+        ul { list-style: none; padding: 0; }
+        li { padding: 0.5em; border-bottom: 1px solid #ccc; display: flex; justify-content: space-between; align-items: center; }
+        li span { flex-grow: 1; transition: background 0.4s; }
+        .actions button { margin-left: 0.5em; }
+        /* Animación para añadir y eliminar */
+        .animacion-agregar { animation: fadeIn 0.6s; }
+        .animacion-eliminar { animation: fadeOut 0.6s forwards; }
+        @keyframes fadeIn {
+          from { opacity: 0; }
+          to { opacity: 1; }
+        }
+        @keyframes fadeOut {
+          from { opacity: 1; }
+          to { opacity: 0; height: 0px; }
+        }
+        .mensaje-error { color: red; margin: 0.2em 0;}
+    </style>
+</head>
+<body>
+
+<h1>CRM con IndexedDB - Mejorado</h1>
+
+<form id="client-form" autocomplete="off">
+    <label>Nombre completo:</label>
+    <input id="name" name="name" type="text" placeholder="Nombre completo" required>
+    
+    <label>Email:</label>
+    <input id="email" name="email" type="email" placeholder="ejemplo@dominio.com" required>
+    <div id="email-error" class="mensaje-error"></div>
+    
+    <label>Teléfono:</label>
+    <input id="phone" name="phone" type="text" placeholder="123-456-7890" required>
+
+    <button id="add-btn" type="submit" disabled>
+        Agregar Cliente
+    </button>
+</form>
+
+<h2>Buscar clientes</h2>
+<input id="search-client" type="search" placeholder="Buscar por nombre, email o teléfono">
+
+<h2>Listado de Clientes</h2>
+<ul id="client-list"></ul>
+
+<script src="js/crm-indexeddb.js"></script>
+
+</body>
+</html>
